@@ -51,14 +51,13 @@ def elaborazione():
 
     client.username_pw_set("fkjqkoul", "wK0aUWpQWS35")
     client.connect("tailor.cloudmqtt.com", 16434, 60)
-    client.publish("Tutorial2", "Connesso a MQTT")
 
+    client.loop_forever()
 
     time.sleep(1)
     while True:
-        for eachObject in detections:
-            client.publish("Tutorial2", eachObject["name"], " : ", eachObject["percentage_probability"])
-            time.sleep(15)
+        client.publish("Tutorial2", "Getting started with MQTT TEST")
+        time.sleep(15)
 
     client.loop_stop()
     client.disconnect()
